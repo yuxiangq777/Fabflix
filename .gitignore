@@ -100,6 +100,7 @@ fabric.properties
 
 # Package Files #
 *.jar
+!MobileApp/app/libs/library-1.0.10.jar
 *.war
 *.ear
 *.zip
