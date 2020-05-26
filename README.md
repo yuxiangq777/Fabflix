@@ -2,6 +2,7 @@
 ```
 Team member: Yuxiang Qian ID:57066565
 Webapp folder contains the fabflix web application
+MobileApp folder contains the Android version of fabflix
 Parser folder contains code for XML parsing
 Commits after demo video include adding the video URL and change the readme title
 ```
@@ -32,5 +33,5 @@ you have complete IntelliJ IDEA Tomcat configuration. Then run the project.
     Then you should successfully see the website.
     ```
 
-#### 4. Each member's contribution
+#### 3. Each member's contribution
 I do not have a teammate, there is only one member in this team. I contribute to everything in the project.

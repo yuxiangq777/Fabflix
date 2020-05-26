@@ -40,7 +40,7 @@ public class Login extends ActionBarActivity {
          * In Android, localhost is the address of the device or the emulator.
          * To connect to your machine, you need to use the below IP address
          * **/
-        url = "http://98.164.242.170:8080/cs122b-spring20-project2-login-cart-example/api/";
+        url = "https://ec2-34-238-241-109.compute-1.amazonaws.com:8443/project_4/api/";
 
         //assign a listener to call a function to handle the user request when clicking a button
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -57,18 +57,17 @@ public class Login extends ActionBarActivity {
         // Use the same network queue across our application
         final RequestQueue queue = NetworkManager.sharedManager(this).queue;
         //request type is POST
-        final StringRequest loginRequest = new StringRequest(Request.Method.POST, url + "login?email="+username+"&password="+password+"&from=android", new Response.Listener<String>() {
+        final StringRequest loginRequest = new StringRequest(Request.Method.POST, url + "login", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 //TODO should parse the json response to redirect to appropriate functions.
                 try {
-                    System.out.println(response);
                     JSONObject jsonObject = new JSONObject(response);
                     message.setText(jsonObject.getString("message"));
                     if(jsonObject.getString("status").equals("success")) {
                         Log.d("login.success", response);
                         //initialize the activity(page)/destination
-                        Intent listPage = new Intent(Login.this, ListViewActivity.class);
+                        Intent listPage = new Intent(Login.this, Main.class);
                         //without starting the activity/page, nothing would happen
                         startActivity(listPage);
                     }
@@ -91,9 +90,9 @@ public class Login extends ActionBarActivity {
             protected Map<String, String> getParams() {
                 // Post request form data
                 final Map<String, String> params = new HashMap<>();
-                params.put("username", username.getText().toString());
+                params.put("email", username.getText().toString());
                 params.put("password", password.getText().toString());
-
+                params.put("from","android");
                 return params;
             }
         };
