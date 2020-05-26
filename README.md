@@ -5,6 +5,7 @@ Webapp folder contains the fabflix web application
 MobileApp folder contains the Android version of fabflix
 Parser folder contains code for XML parsing
 Commits after demo video include adding the video URL 
+(I do not select to do the extra credits: fuzzy search)
 ```
 
 #### 1. Demo Video URL
