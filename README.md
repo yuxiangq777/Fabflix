@@ -10,7 +10,9 @@ Commits after demo video include adding the video URL
 
 #### 1. Demo Video URL
 
-<>
+<https://youtu.be/YQ0YmCFwdFI><br />
+Note: The software I used can't record my mouse. In the part of "use your mouse to click the last suggestion", I actually 
+used my mouse to click that. You can also test it by visiting the website.
 
 #### 2. how to deploy the application with Tomcat
  - create a test user and grant privileges:
