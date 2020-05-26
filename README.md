@@ -4,12 +4,12 @@ Team member: Yuxiang Qian ID:57066565
 Webapp folder contains the fabflix web application
 MobileApp folder contains the Android version of fabflix
 Parser folder contains code for XML parsing
-Commits after demo video include adding the video URL and change the readme title
+Commits after demo video include adding the video URL 
 ```
 
 #### 1. Demo Video URL
 
-<https://youtu.be/ly1Jrqz9HEY>
+<>
 
 #### 2. how to deploy the application with Tomcat
  - create a test user and grant privileges:
