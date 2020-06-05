@@ -32,7 +32,7 @@
 
 - # Connection Pooling
     - #### Include the filename/path of all code/configuration files in GitHub of using JDBC Connection Pooling.
-        - [context.xml](Webapp/WebContent/WEB-INF/context.xml)<br />
+        - [context.xml](Webapp/WebContent/META-INF/context.xml)<br />
         [AddMovieServlet.java](Webapp/src/AddMovieServlet.java)<br />
         [AddStarServlet.java](Webapp/src/AddStarServlet.java)<br />
         [AutoCompleteServlet.java](Webapp/src/AutoCompleteServlet.java)<br />
