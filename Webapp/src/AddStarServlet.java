@@ -2,6 +2,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import javax.annotation.Resource;
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +48,19 @@ public class AddStarServlet extends HttpServlet {
         }
         try {
             // Get a connection from dataSource
-            Connection dbcon = dataSource.getConnection();
+            Context initContext = new InitialContext();
+            Context envContext = (Context) initContext.lookup("java:/comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/masterdb");
+
+            // the following commented lines are direct connections without pooling
+            //Class.forName("org.gjt.mm.mysql.Driver");
+            //Class.forName("com.mysql.jdbc.Driver").newInstance();
+            //Connection dbcon = DriverManager.getConnection(loginUrl, loginUser, loginPasswd);
+
+            Connection dbcon = ds.getConnection();
+            if (dbcon == null)
+                out.println("dbcon is null.");
+            //Connection dbcon = dataSource.getConnection();
             String id_query= "select max(id) as Id from stars";
             PreparedStatement statement_ = dbcon.prepareStatement(id_query);
             // Perform the query

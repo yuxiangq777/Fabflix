@@ -3,11 +3,22 @@
 <Context>
 
     <!-- Defines a Data Source Connecting to localhost moviedb-->
-    <Resource name="jdbc/moviedb"
+    <Resource name="jdbc/masterdb"
               auth="Container"
               driverClassName="com.mysql.jdbc.Driver"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
               type="javax.sql.DataSource"
+              maxTotal="100" maxIdle="30" maxWaitMillis="10000"
               username="mytestuser"
               password="mypassword"
-              url="jdbc:mysql://localhost:3306/moviedb"/>
+              url="jdbc:mysql://172.31.53.231:3306/moviedb?autoReconnect=true&amp;useSSL=false&amp;cachePrepStmts=true"/>
+    <Resource name="jdbc/slavedb"
+              auth="Container"
+              driverClassName="com.mysql.jdbc.Driver"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              type="javax.sql.DataSource"
+              maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+              username="mytestuser"
+              password="mypassword"
+              url="jdbc:mysql://172.31.54.249:3306/moviedb?autoReconnect=true&amp;useSSL=false&amp;cachePrepStmts=true"/>
 </Context>
