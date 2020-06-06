@@ -3,7 +3,7 @@
     
     - #### Names: Yuxiang Qian (only 1 member); 
     
-    - #### Project 5 Video Demo Link:
+    - #### Project 5 Video Demo Link: <https://youtu.be/DYIzmJO5vIg> (note: because of the time limit, the no. of samples in demo are all 2642. In the report, the no. of samples are 26420 if there are 10 threads)
 
     - #### Instruction of deployment: 
         - create a test user and grant privileges:
@@ -23,7 +23,7 @@
             ```
             shell>mvn package
             shell>cp ./target/*.war /home/ubuntu/tomcat/webapps
-            Then refresh the tomcat manager page and click on project_2
+            Then refresh the tomcat manager page and click on Fabflix
             Then you should successfully see the website.
             ```
 
@@ -101,7 +101,7 @@
 
 - # JMeter TS/TJ Time Logs
     - #### Instructions of how to use the `log_processing.*` script to process the JMeter logs.
-        - put it in the same directory as a 'log.txt' file, and directly run it.
+        - For any log you want to process, you should rename it to 'log.txt'. Then put 'log_processing.exe' in the same directory as the 'log.txt' file, and directly run it in a shell. 
 
 - # JMeter TS/TJ Time Measurement Report
 
@@ -109,11 +109,11 @@
 |------------------------------------------------|------------------------------|----------------------------|-------------------------------------|---------------------------|--------------|
 | Case 1: HTTP/1 thread                          | ![case1](img/case1.PNG)    | 165                         | 2.602574                                   | 2.325132                        | Compared to https, it has less average query time         |
 | Case 2: HTTP/10 threads                        | ![case2](img/case2.PNG)   | 163                       |  2.723089                                |  2.325132                      | It has similar time as case 1, but compared to https, it still has less average query time          |
-| Case 3: HTTPS/10 threads                       | ![case3](img/case3.PNG)   | 339                         | 2.890121                                  | 2.774565                        | Compared to case1 and 2, it has much more average query time          |
-| Case 4: HTTP/10 threads/No connection pooling  | ![case4](img/case4.PNG)    | 167                        | 3.326079                                  | 3.231605                        | Compared to all case 1,2,3, it has more TS and TJ time           |
+| Case 3: HTTPS/10 threads                       | ![case3](img/case3.PNG)   | 339                         | 2.890121                                  | 2.774565                        | Compared to case1 and 2, it has much more average query time. This means that https requires more query time          |
+| Case 4: HTTP/10 threads/No connection pooling  | ![case4](img/case4.PNG)    | 167                        | 3.326079                                  | 3.231605                        | Compared to all case 1,2,3, it has more TS and TJ time. This means that connection pooling can efficiently reduce TS and TJ time          |
 
 | **Scaled Version Test Plan**                   | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
 |------------------------------------------------|------------------------------|----------------------------|-------------------------------------|---------------------------|--------------|
 | Case 1: HTTP/1 thread                          | ![case5](img/case5.PNG)    | 167                         | 3.280469                                  | 2.976533                        | It performs better than case4, but are similar to case1 and 2           |
 | Case 2: HTTP/10 threads                        | ![case6](img/case6.PNG)   | 167                         | 3.223354                               | 3.112226                       | It also performs better than case4, but are similar to case1 and 2            |
-| Case 3: HTTP/10 threads/No connection pooling  | ![case7](img/case7.PNG)    | 168                         | 4.939213                                 | 3.925662                        | It has apparently more TS and TJ time than case5 and 6 and more average query time           |
+| Case 3: HTTP/10 threads/No connection pooling  | ![case7](img/case7.PNG)    | 168                         | 4.939213                                 | 3.925662                        | It has apparently more TS and TJ time than case5 and 6. This means that connection pooling can efficiently reduce TS and TJ time         |
