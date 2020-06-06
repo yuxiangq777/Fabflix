@@ -1,0 +1,98 @@
+<!-- This page will be redirected from any url if you are not logged in -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            margin: 0 auto;
+            width:250px;
+        }
+        .starform{
+            position:absolute;
+            right: 10cm;
+            top  : 5cm;
+        }
+        .movieform {
+            position:absolute;
+            right: 10cm;
+            top  : 12cm;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+<h1>Welcome employee!</h1>
+<h2 style="position: absolute; top: 0; left: 0;"> <a href="index.html">Go to customer page </a> </h2>
+<div id="metadata"><h3>Metadata of the database:</h3></div>
+<div class="starform">
+    <h3>Add a new star:</h3>
+    <form id="star_form" method="get" action="#">
+        <label><b><span style="display:inline-block;width:200px;text-align:left;">Star Name</span></b></label>
+        <label>
+            <input name="name"  type="text">
+        </label>
+        <br>
+        <label><b><span style="display:inline-block;width:200px;text-align:left;">Birth Year (Optional)</span></b></label>
+        <label>
+            <input name="birthYear"  type="text">
+        </label>
+        <br>
+        <input type="submit" value="Add">
+    </form>
+    <p id="star_message" style="color:red"></p>
+</div>
+<div class="movieform">
+    <h3>Add a new movie:</h3>
+    <form id="movie_form" method="get" action="#">
+        <label><b><span style="display:inline-block;width:200px;text-align:left;">Title</span></b></label>
+        <label>
+            <input name="title"  type="text">
+        </label>
+        <br>
+        <label><b><span style="display:inline-block;width:200px;text-align:left;">Year</span></b></label>
+        <label>
+            <input name="Year"  type="text">
+        </label>
+        <br>
+        <label><b><span style="display:inline-block;width:200px;text-align:left;">Director</span></b></label>
+        <label>
+            <input name="director"  type="text">
+        </label>
+        <br>
+        <label><b><span style="display:inline-block;width:200px;text-align:left;">A star</span></b></label>
+        <label>
+            <input name="star_name"  type="text">
+        </label>
+        <br>
+        <label><b><span style="display:inline-block;width:200px;text-align:left;">A genre</span></b></label>
+        <label>
+            <input name="genre_name"  type="text">
+        </label>
+        <br>
+        <input type="submit" value="Add">
+    </form>
+    <p id="movie_message" style="color:red"></p>
+</div>
+<!-- Set the method to POST to avoid showing the username/password in the URL
+     The default action is disabled to allow your own implementation. -->
+
+<!-- include jQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- include our own JS file -->
+<script src="_dashboard.js"></script>
+
+</body>
+</html>

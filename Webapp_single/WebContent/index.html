@@ -1,0 +1,90 @@
+<!-- This page will be redirected from any url if you are not logged in -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            margin: 0 auto;
+            width:250px;
+        }
+        tr{
+            text-align: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.7/jquery.autocomplete.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Fablix Main Page</title>
+</head>
+<body>
+<div style="position: absolute; top: 0; right: 0;"><button  type="button" onclick="location.href = 'cart.html'">Check out</button></div>
+<h1>Welcome to Fablix!</h1>
+<h2>Main Search:</h2>
+<form id="main_search_form" method="get" action="#">
+    <label>
+        <input name="title" type="text" id="autocomplete"
+               style="height:30px;float:left;width: 300px;"
+               placeholder="Search Movies">
+    </label>
+    <input type="submit" value="Search" style="height:30px; position: absolute; right: 520px;">
+    <br>
+</form>
+<br>
+<h2>You can also search movies by</h2>
+<!-- Set the method to POST to avoid showing the username/password in the URL
+     The default action is disabled to allow your own implementation. -->
+<form id="search_form" method="get" action="#">
+    <label><b><span style="display:inline-block;width:200px;text-align:left;">Title:</span></b></label>
+    <label>
+        <input name="title" type="text">
+    </label>
+    <br>
+    <label><b><span style="display:inline-block;width:200px;text-align:left;">Year:</span></b></label>
+    <label>
+        <input name="year"  type="text">
+    </label>
+    <br>
+    <label><b><span style="display:inline-block;width:200px;text-align:left;">Director:</span></b></label>
+    <label>
+        <input name="director"  type="text">
+    </label>
+    <br>
+    <label><b><span style="display:inline-block;width:200px;text-align:left;">Star's name:</span></b></label>
+    <label>
+        <input name="starname"  type="text">
+    </label>
+    <br>
+    <input type="submit" value="Search">
+</form>
+<h2>You can also browse movie by Genre</h2>
+<table id=genre_table class="table table-striped" style="border:1px solid black;margin-left:auto;margin-right:auto;">
+    <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+    <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+    <tbody id=genre_body></tbody>
+</table>
+<h2>You can also browse movie by Title</h2>
+<table id=title_table class="table table-striped" style="border:1px solid black;margin-left:auto;margin-right:auto;">
+    <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+    <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+    <tbody id=title_body ></tbody>
+</table>
+<!-- include jQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!-- include our own JS file -->
+<script src="index.js"></script>
+
+</body>
+</html>
