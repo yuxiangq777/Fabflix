@@ -28,17 +28,11 @@ public class LoginFilter implements Filter {
             chain.doFilter(request, response);
             return;
         }
-        int count=0;
         String uri = httpRequest.getRequestURI();
-        for(int i = 0; i < uri.length(); i++) {
-            if(uri.charAt(i) == '/')
-                count++;
-        }
+
         String redirect= "login.html";
-        for(int i = 0; i < count-2; i++) {
-            redirect = "../"+ redirect;
-        }
-        // Redirect to login page if the "user" attribute doesn't exist in session
+        if(uri.indexOf("api")>0) redirect= "../login.html";
+            // Redirect to login page if the "user" attribute doesn't exist in session
         if (httpRequest.getSession().getAttribute("user") == null) {
             httpResponse.sendRedirect(redirect);
         } else {
